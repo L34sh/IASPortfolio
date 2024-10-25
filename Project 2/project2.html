@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="project2.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Checkout</h2>
+        <form id="checkoutForm" class="row">
+            <!-- Billing Address -->
+            <h6 class="mb-3">Billing Address</h6>
+            <div class="col-md-4 ">
+                <label for="billName" class="form-label">Firstname</label>
+                <input type="text" class="form-control" id="billName" placeholder="Firstname" required>
+                <span class="error" id="billingError"></span>
+            </div>
+            <div class="col-md-4">
+              <label for="billSurname" class="form-label">Surname</label>
+              <input type="text" class="form-control" id="billSurname" placeholder="Surname" required>
+              <span class="error" id="billingError"></span>
+          </div>
+          <div class="col-md-4">
+            <label for="billMname" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" id="billMname" placeholder="Middle Name" >
+           
+        </div>
+        <div class="col-md-12">
+          <label for="billAdd" class="form-label">Address</label>
+          <input type="text" class="form-control" id="billAdd" placeholder="Billing Address" required>
+          <span class="error" id="billingError"></span>
+      </div>
+      <div class="col-md-5">
+        <label for="billCountry" class="form-label">Country</label>
+        <input type="text" class="form-control" id="billCountry" placeholder="Country" required>
+        <span class="error" id="billingError"></span>
+    </div>
+    <div class="col-md-4">
+      <label for="billCity" class="form-label">City/Municipality</label>
+      <input type="text" class="form-control" id="billCity" placeholder="City/Municipality" required>
+      <span class="error" id="billingError"></span>
+  </div>
+  <div class="col-md-3">
+    <label for="billZip" class="form-label">Zip Code</label>
+    <input inputmode="numeric" class="form-control" id="billZip" placeholder="Zip Code"  maxlength="4" required>
+    <span class="error" id="billingError"></span>
+</div>
+<div class="col-md-5">
+    <label for="billContact" class="form-label">Contact Number</label>
+    <input type="text" class="form-control" id="billContact" placeholder="Contact Number" pattern="^09[0-9]{9}$" required maxlength="11">
+    <span class="error" id="billingContactError"></span>
+</div>
+
+
+
+            <!-- Shipping Address -->
+            <h6 class="mt-4 mb-3">Shipping Address</h6>
+            <div class="col-md-4 ">
+                <label for="shipName" class="form-label">Firstname</label>
+                <input type="text" class="form-control" id="shipName" placeholder="Firstname" required>
+                <span class="error" id="shippingError"></span>
+            </div>
+            <div class="col-md-4">
+              <label for="shipSurname" class="form-label">Surname</label>
+              <input type="text" class="form-control" id="shipSurname" placeholder="Surname" required>
+              <span class="error" id="shippingError"></span>
+          </div>
+          <div class="col-md-4">
+            <label for="shipMname" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" id="shipMname" placeholder="Middle Name" >
+            
+        </div>
+        <div class="col-md-12">
+          <label for="shipAdd" class="form-label">Address</label>
+          <input type="text" class="form-control" id="shipAdd" placeholder="Shipping Address" required>
+          <span class="error" id="shippingError"></span>
+      </div>
+      <div class="col-md-5">
+        <label for="shipCountry" class="form-label">Country</label>
+        <input type="text" class="form-control" id="shipCountry" placeholder="Country" required>
+        <span class="error" id="shippingError"></span>
+    </div>
+    <div class="col-md-4">
+      <label for="shipCity" class="form-label">City/Municipality</label>
+      <input type="text" class="form-control" id="shipCity" placeholder="City/Municipality" required>
+      <span class="error" id="shippingError"></span>
+  </div>
+  <div class="col-md-3">
+    <label for="shipZip" class="form-label">Zip Code</label>
+    <input inputmode="numeric" class="form-control" id="shipZip" placeholder="Zip Code"  maxlength="4" required>
+    <span class="error" id="shippingError"></span>
+</div>
+<div class="col-md-5">
+    <label for="shipContact" class="form-label">Contact Number</label>
+    <input type="text" class="form-control" id="shipContact" placeholder="Contact Number" pattern="^09[0-9]{9}$" maxlength="11" required>
+    <span class="error" id="shippingContactError"></span>
+</div>
+           <div class="mb-3 ms-3 form-check" style="margin-top: 5px;">
+                    <input type="checkbox" class="form-check-input" id="sameAddressCheck">
+                    <label class="form-check-label" for="sameAddressCheck">Same as billing address</label>
+                </div>
+            
+
+            <!-- Payment Method -->
+            <fieldset class="mb-3">
+                <legend>Payment Method</legend>
+                <div>
+                    <input type="radio" id="gcash" name="paymentMethod" value="gcash" required style="margin-top: 15px;">
+                    <label for="gcash">
+                        <div style="margin-left: 15px;">
+                            <img src="https://cdn.prod.website-files.com/6385b55675a0bd614777a5c1/6474928322d48888f6c8cfe5_biz-gcash-logo.svg" alt="gcash" style="width: 35px; height: 25px;"> GCash
+                        </div>
+                    </label>
+
+                    <!-- GCash Payment -->
+                        <div id="gcash-method" class="payment-method">
+                            <div class="mb-3" style="margin-left: 31px; margin-top: 15px;">
+                                <label for="gcashNumber" class="form-label">GCash Mobile Number (09XXXXXXXXX)</label>
+                                <input type="text" class="form-control" id="gcashNumber" placeholder="Enter GCash number"  maxlength="11" required pattern="^09[0-9]{9}$">
+                                <span class="error" id="gcashError"></span>
+                            </div>
+                        </div>
+                </div>
+                <hr class="blurred-hr">
+                <div>
+                    <input type="radio" id="paymaya" name="paymentMethod" value="paymaya">
+                    <label for="paymaya">
+                        <div style="margin-left: 15px;">
+                            <img src="https://www.maya.ph/hubfs/Maya/maya_logo_mgreen.svg" alt="PayPal Logo" style="width: 35px; height: 25px;">  Paymaya
+                        </div>
+                    </label>
+                    <!-- PayMaya Payment -->
+                    <div id="paymaya-method" class="payment-method" style="margin-left: 31px; margin-top: 15px;">
+                        <div class="mb-3">
+                            <label for="paymayaNumber" class="form-label">PayMaya Mobile Number (09XXXXXXXXX)</label>
+                            <input type="text" class="form-control" id="paymayaNumber" placeholder="Enter PayMaya number"  maxlength="11" required pattern="^09[0-9]{9}$">
+                            <span class="error" id="paymayaError"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="blurred-hr">
+                <div>
+                    <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+                    <label for="paypal">
+                        <div style="margin-left: 15px;">
+                            <img src="/assets/ico/paypal.svg" alt="PayPal Logo" style="width: 35px; height: 25px;"> Paypal
+                        </div>
+                    </label>
+                    <!-- PayPal Payment -->
+                    <div id="paypal-method" class="payment-method" style="margin-left: 31px; margin-top: 15px;">
+                        <div class="mb-3">
+                            <label for="paypalEmail" class="form-label">PayPal Email</label>
+                            <input type="email" class="form-control" id="paypalEmail" placeholder="Enter PayPal email" required>
+                            <span class="error" id="paypalError"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="blurred-hr">
+                <div>
+                    <input type="radio" id="credit-card" name="paymentMethod" value="credit-card">
+                    <label for="credit-card">
+                        <div style="margin-left: 15px;">
+                            <img src="/assets/ico/credit.svg" alt="CreditCard Logo" style="width: 35px; height: 25px;"> Credit Card
+                        </div>
+                    </label>
+                    <!-- Credit Card Payment -->
+                    <div id="credit-card-method" class="payment-method" style="margin-left: 31px; margin-top: 15px;">
+                        <div class="mb-3"> 
+                          <label for="card" class="form-label">Card Type</label>
+                          <select class="form-select" id="card" required>
+                              <option value="" disabled selected>Select your Card Type</option>
+                              <option value="visa">VISA Card</option>
+                              <option value="master">Master Card</option>
+                              <option value="amex">American Express Card</option>
+                              <option value="uPay">UnionPay Card</option>
+                          </select>
+                          </div>
+                          <!-- mastercard visual -->
+                          <div id="master" class="master-card cards">
+                              <div class="logoContainer">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  x="0px"
+                                  y="0px"
+                                  width="23"
+                                  height="23"
+                                  viewBox="0 0 48 48"
+                                  class="svgLogo"
+                                >
+                                  <path
+                                    fill="#ff9800"
+                                    d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"
+                                  ></path>
+                                  <path
+                                    fill="#d50000"
+                                    d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"
+                                  ></path>
+                                  <path
+                                    fill="#ff3d00"
+                                    d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div class="number-container">
+                                <label class="input-label" for="cardNumber">CARD NUMBER</label>
+                                <div id="cardNum" class="inputstyle cardNumber" required >XXXX XXXX XXXX XXXX</div>
+                              </div>
+                            
+                              <div class="name-date-cvv-container">                          
+                                <div class="expiry-wrapper">
+                                  <label class="input-label">VALID THRU</label>
+                                  <input class="inputstyle" id="expiry" placeholder="MM/YY" type="text" />
+                              </div>
+                                <div class="cvv-wrapper">
+                                  <label class="input-label" for="cvv">CVV</label>
+                                  <div id="cardCVV" class="inputstyle">XXXX</div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- visacard visual -->
+                            <div id="visa" class="visa-card cards">
+                                <div class="logoContainer visani">
+                                    <svg
+                                    viewBox="0 0 256 83"
+                                    height="83"
+                                    width="256"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <defs>
+                                      <linearGradient
+                                        y2="100%"
+                                        y1="-2.006%"
+                                        x2="54.877%"
+                                        x1="45.974%"
+                                        id="logosVisa0"
+                                      >
+                                        <stop stop-color="#222357" offset="0%"></stop>
+                                        <stop stop-color="#254AA5" offset="100%"></stop>
+                                      </linearGradient>
+                                    </defs>
+                                    <path
+                                      transform="matrix(1 0 0 -1 0 82.668)"
+                                      d="M132.397 56.24c-.146-11.516 10.263-17.942 18.104-21.763c8.056-3.92 10.762-6.434 10.73-9.94c-.06-5.365-6.426-7.733-12.383-7.825c-10.393-.161-16.436 2.806-21.24 5.05l-3.744-17.519c4.82-2.221 13.745-4.158 23-4.243c21.725 0 35.938 10.724 36.015 27.351c.085 21.102-29.188 22.27-28.988 31.702c.069 2.86 2.798 5.912 8.778 6.688c2.96.392 11.131.692 20.395-3.574l3.636 16.95c-4.982 1.814-11.385 3.551-19.357 3.551c-20.448 0-34.83-10.87-34.946-26.428m89.241 24.968c-3.967 0-7.31-2.314-8.802-5.865L181.803 1.245h21.709l4.32 11.939h26.528l2.506-11.939H256l-16.697 79.963h-17.665m3.037-21.601l6.265-30.027h-17.158l10.893 30.027m-118.599 21.6L88.964 1.246h20.687l17.104 79.963h-20.679m-30.603 0L53.941 26.782l-8.71 46.277c-1.022 5.166-5.058 8.149-9.54 8.149H.493L0 78.886c7.226-1.568 15.436-4.097 20.41-6.803c3.044-1.653 3.912-3.098 4.912-7.026L41.819 1.245H63.68l33.516 79.963H75.473"
+                                      fill="url(#logosVisa0)"
+                                    ></path></svg>
+                                
+                                </div>
+                                <div class="number-container">
+                                  <label class="input-label" for="cardNumber">CARD NUMBER</label>
+                                  <div id="vscardNum" class="inputstyle cardNumber" required >XXXX XXXX XXXX XXXX</div>
+                                </div>
+                              
+                                <div class="name-date-cvv-container">                   
+                                  <div class="expiry-wrapper">
+                                    <label class="input-label">VALID THRU</label>
+                                    <input class="inputstyle" id="vsexpiry" placeholder="MM/YY" type="text" />
+                                </div>
+                                  <div class="cvv-wrapper">
+                                    <label class="input-label" for="cvv">CVV</label>
+                                    <div id="vscardCVV" class="inputstyle">XXXX</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- amex visual -->
+                              <div id="amex" class="amex-card cards">
+                                <div class="logoContainer amexni">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/american-express-2.svg" alt="amex logo">
+                                </div>
+                                <div class="number-container">
+                                  <label class="input-label" for="cardNumber">CARD NUMBER</label>
+                                  <div id="amcardNum" class="inputstyle cardNumber" required >XXXX XXXX XXXX XXXX</div>
+                                </div>
+                              
+                                <div class="name-date-cvv-container">                          
+                                  <div class="expiry-wrapper">
+                                    <label class="input-label">VALID THRU</label>
+                                    <input class="inputstyle" id="amexpiry" placeholder="MM/YY" type="text" />
+                                </div>
+                                  <div class="cvv-wrapper">
+                                    <label class="input-label" for="cvv">CVV</label>
+                                    <div id="amcardCVV" class="inputstyle">XXXX</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- uPay visual -->                                                      
+                          <div id="uPay" class="uPay-card cards">
+                            <div class="logoContainer uPayni">
+                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UnionPay_logo.svg/256px-UnionPay_logo.svg.png" alt="uPay logo">
+                            </div>
+                            <div class="number-container">
+                              <label class="input-label" for="cardNumber">CARD NUMBER</label>
+                              <div id="upcardNum" class="inputstyle cardNumber" required >XXXX XXXX XXXX XXXX</div>
+                            </div>
+                          
+                            <div class="name-date-cvv-container">                          
+                              <div class="expiry-wrapper">
+                                <label class="input-label">VALID THRU</label>
+                                <input class="inputstyle" id="upexpiry" placeholder="MM/YY" type="text" />
+                                
+                            </div>
+                              <div class="cvv-wrapper">
+                                <label class="input-label" for="cvv">CVV</label>
+                                <div id="upcardCVV" class="inputstyle">XXXX</div>
+                              </div>
+                            </div>
+                          </div>
+                            <!-- form proper -->
+                          <div class="mb-3">
+                              <label for="cardNumber" class="form-label">Credit Card Number</label>
+                              <input type="text" class="form-control" id="inputcardNumber" placeholder="Enter credit card number" maxlength="19" required pattern="[0-9* ]*">
+                              <span class="error" id="cardNumberError"></span>
+                          </div>
+                          <div class="mb-3">
+                              <label for="cardExpiry" class="form-label">Expiry Date</label>
+                              <div class="row">
+                                  <div class="col">
+                                      <select class="form-select" id="expiryMonth" required>
+                                          <option value="" disabled selected>Month</option>
+                                          <option value="01">01</option>
+                                          <option value="02">02</option>
+                                          <option value="03">03</option>
+                                          <option value="04">04</option>
+                                          <option value="05">05</option>
+                                          <option value="06">06</option>
+                                          <option value="07">07</option>
+                                          <option value="08">08</option>
+                                          <option value="09">09</option>
+                                          <option value="10">10</option>
+                                          <option value="11">11</option>
+                                          <option value="12">12</option>
+                                      </select>
+                                  </div>
+                                  <div class="col">
+                                      <select class="form-select" id="expiryYear" required>
+                                          <option value="" disabled selected>Year</option>
+                                          <script>
+                                              // Generate options for the next 10 years
+                                              const currentYear = new Date().getFullYear();
+                                              for (let i = 0; i <= 10; i++) {
+                                                  document.write(`<option value="${currentYear + i}">${currentYear + i}</option>`);
+                                              }
+                                          </script>
+                                      </select>
+                                  </div>
+                              </div>
+                              <span class="error" id="cardExpiryError"></span>
+                          </div>
+                          <div class="mb-3">
+                              <label for="cardCVV" class="form-label">CVV</label>
+                              <input type="password" class="form-control" id="inputCVV" placeholder="CVV" maxlength="4" required pattern="[0-9]*" inputmode="numeric">
+                              <span class="error" id="cardCVVError"></span>
+                          </div>
+                      </div>
+                </div>
+                <hr class="blurred-hr">
+                <div>
+                    <input type="radio" id="COD" name="paymentMethod" value="COD">
+                    <label for="COD">
+                        <div style="margin-left: 12px;">
+                            <img src="/assets/ico/cod.jpg" alt="COD Logo" style="width: 35px; height: 25px;"> Cash on Delivery
+                        </div>
+                    </label>
+                    <!-- COD method -->
+                    <div id="COD-method" class="payment-method" style="margin-left: 31px; margin-top: 15px;">
+                        <div class="mb-3">
+                            <p>You will pay upon delivery of your order.</p>
+                            <label for="codNotes" class="form-label">Special Instructions (Optional)</label>
+                            <textarea class="form-control" id="codNotes" rows="3" placeholder="Enter any special instructions for delivery"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-4" data-bs-toggle="modal" >
+                    Proceed to Checkout
+                </button>
+        
+            </fieldset>
+
+            <!-- modal -->
+
+            <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered"> <!-- Center the modal -->
+                    <div class="modal-content animate">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="checkoutModalLabel"><i class="fas fa-shopping-cart"></i> Checkout Confirmation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to proceed with the checkout? If you need to make any changes, click <strong>Cancel</strong>.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-cancel btn-left" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancel</button>
+                            <button type="button" class="btn btn-checkout btn-right" id="checkoutBtn"><i class="fas fa-check"></i> Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </form>
+    </div>
+    <a href="/leash/index.html" class="homeBtn"><i class="fa-solid fa-house fa-3x" style="color:#007bff"></i></a>
+   <!-- Bootstrap JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="./project2.js"></script>
+ </body>
+
+</html>

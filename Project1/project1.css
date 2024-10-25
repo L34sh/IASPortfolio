@@ -1,0 +1,116 @@
+    /* General body styling */
+    body {
+        background-color: #f0f4f7;
+        font-family: 'Arial', sans-serif;
+        background: url(./assets/waves.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+        /* Container for the form */
+        .container {
+            max-width: 450px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px 25px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .container:hover {
+            box-shadow: 0 20px 50px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #0d6efd;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            width: 100%;
+            font-size: 18px;
+            padding: 12px;
+            transition: background-color  0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+        }
+
+        .star-rating {
+            font-size: 2rem;
+            color: #ccc;
+            cursor: pointer;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .star-rating .bi {
+            font-size: 3.5rem;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .star-rating .bi:hover,
+        .star-rating .bi.active {
+            color: #f1c40f;
+            transform: scale(1.1);
+        }
+
+        .hover-active {
+            color: #f1c40f;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        .homeBtn{
+            position: fixed;
+            top: 25px; 
+            right: 25px; 
+        }
+        .homeBtn:hover{
+            color: white;
+        }
+        
