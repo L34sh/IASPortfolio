@@ -11,6 +11,9 @@ body, html {
     height: 100%;
     text-align: center;
     background-color: #f8f9fa;
+    background-image: url("./assets/bg/wavestyp2.svg");
+    background-size: cover; /* Optional: Adjust to fit the image to the full screen */
+    background-position: center;
   }
   .card {
     border: none;
